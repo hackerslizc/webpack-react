@@ -1,21 +1,24 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactRouter = require('react-router');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {
+    Route, 
+    Router, 
+    RouteHandler, 
+    IndexRoute, 
+    hashHistory,
+    browserHistory
+} from 'react-router';
 
-
-
-// 声明对象
-var Route = ReactRouter.Route;
-var Router = ReactRouter.Router;
-var RouteHandler = ReactRouter.RouteHandler;
-var IndexRoute = ReactRouter.IndexRoute;
-var hashHistory = ReactRouter.hashHistory;
 // 定义整个页面的路由结构
+import IndexPage from './components/index';
+import AboutUs from './components/aboutus';
 
 ReactDOM.render((
-    <Router history={hashHistory}>
-        <Route path="/" name="" component={}>
-        	<IndexRoute name="" component={} />
+    <Router history={browserHistory}>
+        <Route path="/" name="IndexPage" component={IndexPage}>
+        	<IndexRoute name="IndexPage" component={IndexPage} />
         </Route>
+        <Route path="/index" name="IndexPage" component={IndexPage}></Route>
+        <Route path="/aboutus" name="AboutUs" component={AboutUs}></Route>
     </Router>
-),document.getElementById('newPathBox'));
+),document.getElementById('wrapBox'));
